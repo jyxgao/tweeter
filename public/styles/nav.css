@@ -1,0 +1,43 @@
+/* Navbar style */
+nav {
+  height: 120px;
+  margin: 0;
+  background-color: #34314c;
+   /* #4056A1; */
+  color: #FFFFFF;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 9999;
+}
+
+span {
+  margin: 0.3em;
+}
+
+.content {
+  display: flex;
+  padding: 1.5em;
+  justify-content: space-between;
+}
+
+h4 {
+  margin: 0.5em;
+  font-weight: normal;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+h4 i {
+  color: #FF7473;
+}
+
+#logo {
+  font-family: 'Bungee', cursive;
+}
+
+#write {
+  font-weight: bold;
+  margin-right: 0;
+}

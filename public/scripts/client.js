@@ -4,3 +4,76 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+$(document).ready(function() {
+    
+  const escape = function(str) {
+    let p = document.createElement('p');
+    p.appendChild(document.createTextNode(str));
+    return p.innerHTML;
+  }
+
+  const createTweetElement = function(tweet) {
+    let user = tweet.user;
+    let $tweet = `
+      <article>
+        <header class="tweet">
+          <div class="user">
+            <img src="${user.avatars}" />
+            <h4>${user.name}</h4>
+          </div>
+          <h4 id="handle">${user.handle}</h4>
+        </header>
+          <p class="tweet">${escape(tweet.content.text)}</p>
+        <footer class="tweet">
+          <div>${tweet.created_at} ago</div>
+          <div class=icons>
+            <i class="fas fa-flag"></i>
+            <i class="fas fa-retweet"></i>
+            <i class="fas fa-heart"></i>
+          </div>
+        </footer>
+      </article>
+    `
+    return $tweet;
+  }
+
+  const renderTweets = function(tweets) {
+    // const tweetContainer = $('#tweets-container');
+    // empty all child nodes to only prepend the new tweet
+    $('#tweets-container').empty();
+    
+    for (const tweet of tweets) {
+      const $tweet = createTweetElement(tweet);
+      $('#tweets-container').prepend($tweet);
+    }
+  }
+
+  const loadTweets = function() {
+    $.getJSON('/tweets')
+      .then((tweets) => {
+        renderTweets(tweets);
+    })
+  }
+  // initial load of all tweets in db
+  loadTweets();
+
+  const $form = $('#new-tweet-form');
+  $form.on('submit', (event) => {
+    event.preventDefault();
+
+    const serialized = $form.serialize();
+
+    const $input = $('textarea').val();
+    if (!$input) {
+      alert("Tweet is empty");
+    } else if ($input.length >= 140) {
+      alert("Your tweet exceeded maximum of 140 characters");
+    } else {
+      // send post request with query string format of form input to /tweets
+      $.post(`/tweets`, serialized)
+        .then(() => {
+          loadTweets();
+        })
+      }
+  });
+});

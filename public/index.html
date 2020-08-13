@@ -7,23 +7,74 @@
     <!-- External CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" type="text/css" />
 
+    <!-- External Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Bungee&family=Open+Sans:ital,wght@0,300;0,600;0,800;1,300;1,400&family=Source+Sans+Pro:ital,wght@0,300;0,600;1,300;1,600&display=swap" rel="stylesheet">
+
     <!-- App CSS -->
     <link rel="stylesheet" href="/styles/layout.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/nav.css" type="text/css">
+    <link rel="stylesheet" href="/styles/header.css" type="text/css">
+    <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css">
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://kit.fontawesome.com/3a98b26ab6.js" crossorigin="anonymous"></script>
 
     <!-- App JS -->
-    <script type="text/javascript" src="/scripts/client.js"></script>
+    <script defer type="text/javascript" src="/scripts/client.js"></script>
+    <script defer type="text/javascript" src="/scripts/composer-char-counter.js"></script>
+
   </head>
 
   <body>
     <!-- Top nav bar (fixed) -->
     <nav>
-      <span>tweeter</span>
+      <div class="content">
+        <span id="logo">tweeter</span>
+        <h4>
+          <div>
+            <span id="write">Write</span>
+            <span>a new tweet</span>
+          </div>
+          <div>
+            <i class="fas fa-angle-double-down"></i>
+          </div>
+        </h4>
+      </div>
     </nav>
 
+    <header class="avatar">
+      <div>
+        <img src="/images/profile-hex.png">
+      </div>
+      <br>
+      <div>
+        <h2 class="profile"><span id="bold">Your</span>Name</h2>
+      </div>
+
+    </header>
+
     <!-- Page-specific (main) content here -->
-    <main class="container"></main>
+    <main class="container">
+      <section class="new-tweet">
+        <h2>Compose Tweet</h2>
+        <p class="errormsg" id="emptyfield"><i class="fas fa-exclamation-triangle"></i> please enter a tweet <i class="fas fa-exclamation-triangle"></i></i></p>
+        <p class="errormsg" id="maxchar"><i class="fas fa-exclamation-triangle"></i> exceeded maximum characters allowed per tweet <i class="fas fa-exclamation-triangle"></i></i></p>
+        <form id="new-tweet-form" action="/tweets/" method="POST">
+          <label for="tweet-text">What are you humming about?</label>
+          <textarea type="text" name="text" id="tweet-text"></textarea>
+          <div class="form">
+            <button type="submit">Tweet</button>
+            <output name="counter" class="counter" for="tweet-text">140</output>
+          </div>
+        </form>
+        <section id="tweets-container">
+          <!-- tweets from database -->
+        </section>
+      </section>
+      If you haven't seen Game of Thrones, go watch it right now. If you have then you'll totally get why this Hodor themed lorem ipsum generator is just brilliant.
+
+        Hodor. Hodor hodor, hodor. Hodor hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor; hodor hodor hodor. Hodor. Hodor hodor; hodor hodor - hodor, hodor, hodor hodor. Hodor, hodor. Hodor. Hodor, hodor hodor hodor; hodor hodor; hodor hodor hodor! Hodor hodor HODOR! Hodor hodor... Hodor hodor hodor...
+    </main>
   </body>
 </html>
