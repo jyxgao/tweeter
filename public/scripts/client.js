@@ -5,7 +5,10 @@
  */
 
 $(document).ready(function() {
-    
+  
+  $('.errormsg').hide();
+  $('form').hide();
+
   const escape = function(str) {
     let p = document.createElement('p');
     p.appendChild(document.createTextNode(str));
@@ -23,7 +26,9 @@ $(document).ready(function() {
           </div>
           <h4 id="handle">${user.handle}</h4>
         </header>
+        <div>
           <p class="tweet">${escape(tweet.content.text)}</p>
+        </div>
         <footer class="tweet">
           <div>${tweet.created_at} ago</div>
           <div class=icons>
@@ -57,6 +62,10 @@ $(document).ready(function() {
   // initial load of all tweets in db
   loadTweets();
 
+  $('#toggleform').on('click', function() {
+    $('form').slideDown(400);
+  });
+
   const $form = $('#new-tweet-form');
   $form.on('submit', (event) => {
     event.preventDefault();
@@ -65,10 +74,13 @@ $(document).ready(function() {
 
     const $input = $('textarea').val();
     if (!$input) {
-      alert("Tweet is empty");
+      $('.errormsg').hide(350);
+      $('#emptyfield').slideDown(700);
     } else if ($input.length >= 140) {
-      alert("Your tweet exceeded maximum of 140 characters");
+      $('.errormsg').hide(350);
+      $('#maxchar').slideDown(700);
     } else {
+      $('.errormsg').hide(350);
       // send post request with query string format of form input to /tweets
       $.post(`/tweets`, serialized)
         .then(() => {

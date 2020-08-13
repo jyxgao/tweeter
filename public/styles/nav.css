@@ -41,3 +41,10 @@ h4 i {
   font-weight: bold;
   margin-right: 0;
 }
+
+nav button {
+  border: none;
+}
+
+nav button:hover {
+}

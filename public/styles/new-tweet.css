@@ -6,6 +6,7 @@ main {
 form {
   display: flex;
   flex-direction: column;
+  padding: 3em 0 1em 0;
 }
 
 button {
@@ -31,6 +32,8 @@ textarea {
   outline: none;
   border-bottom: 5px solid #545149;
   resize: none;
+  padding: 1em 0;
+  font-size: 1em;
 }
 
 article {
@@ -49,6 +52,11 @@ article:hover {
   box-shadow: 10px 10px #B0C4DE;
   font-weight: bold;
   opacity: 100%;
+}
+
+article div {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 header.tweet {
