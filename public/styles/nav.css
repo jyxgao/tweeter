@@ -44,6 +44,7 @@ h4 i {
 
 nav button {
   border: none;
+  position: relative;
 }
 
 nav button:hover {

@@ -62,13 +62,20 @@ $(document).ready(function() {
   // initial load of all tweets in db
   loadTweets();
 
-  // $('#toggleform').hover(() => {
-  //   $(this).animate({ top: 10px });
-  // })
-
+  // toggle form arrow to display form and animation
   $('#toggleform').on('click', function() {
     $('form').slideDown(400);
   });
+
+  $('#toggleform').mouseenter(function() {
+    $(this).animate({
+      bottom: "-=10",
+    }, 1000)
+  }).mouseleave(function() {
+    $(this).animate({
+      bottom: "+=10",
+    }, 1000)
+  })
 
   const $form = $('#new-tweet-form');
   $form.on('submit', (event) => {
