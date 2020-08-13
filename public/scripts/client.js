@@ -62,6 +62,10 @@ $(document).ready(function() {
   // initial load of all tweets in db
   loadTweets();
 
+  // $('#toggleform').hover(() => {
+  //   $(this).animate({ top: 10px });
+  // })
+
   $('#toggleform').on('click', function() {
     $('form').slideDown(400);
   });
