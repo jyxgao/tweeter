@@ -6,11 +6,11 @@ This repository is the starter code for the project: Students will fork and clon
 
 ## Responsive UI
 
-!["Mobile Version"](https://github.com/jyxgao/tweeter/blob/master/public/images/tweeter_mobile.png?raw=true)
+!["Mobile Version"](https://github.com/jyxgao/tweeter/blob/master/docs/tweeter_mobile.png?raw=true)
 
-!["Ipad Version"](https://github.com/jyxgao/tweeter/blob/master/public/images/tweeter_medium.png?raw=true)
+!["Ipad Version"](https://github.com/jyxgao/tweeter/blob/master/docs/tweeter_medium.png?raw=true)
 
-!["Desktop Version"](https://github.com/jyxgao/tweeter/blob/master/public/images/tweeter_desktop.png?raw=true)
+!["Desktop Version"](https://github.com/jyxgao/tweeter/blob/master/docs/tweeter_desktop.png?raw=true)
 
 ## Getting Started
 
