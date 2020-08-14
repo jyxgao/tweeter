@@ -2,7 +2,7 @@
 nav {
   height: 120px;
   margin: 0;
-  background-color: #34314c;
+  /* background-color: #34314c; */
    /* #4056A1; */
   color: #FFFFFF;
   position: fixed;
@@ -11,14 +11,11 @@ nav {
   z-index: 9999;
 }
 
-span {
-  margin: 0.3em;
-}
-
 .content {
   display: flex;
-  padding: 1.5em;
+  padding: 1em 1.5em 0 1.5em;
   justify-content: space-between;
+  align-items: center;
 }
 
 h4 {
@@ -33,6 +30,11 @@ h4 i {
   color: #FF7473;
 }
 
+div.navbar {
+  font-size: 1.5rem;
+  float: right;
+}
+
 #logo {
   font-family: 'Bungee', cursive;
 }
@@ -45,7 +47,6 @@ h4 i {
 nav button {
   border: none;
   position: relative;
-}
-
-nav button:hover {
+  background-color: transparent;
+  background-image: none;
 }

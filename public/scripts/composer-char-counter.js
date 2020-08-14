@@ -1,6 +1,5 @@
 $(document).ready(function() {
 
-
   $('textarea').keydown(function(event) {
     const charLeft = 139 - $(this).val().length;
     // find class="counter" through traversing the tree, set it to value equal to charLeft

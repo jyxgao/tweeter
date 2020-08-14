@@ -34,3 +34,40 @@ body {
 .red {
   color: red;
 }
+
+@media screen and (max-width: 767px) {
+  nav, nav button {
+    background-color:#FFC952;
+    background-image: url("../images/az-subtle.png");
+  }
+
+  div.navbar {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  nav {
+    background-color: #34314c;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .mainpage {
+    display: flex;
+    flex-direction: row;
+    padding-top: 5em;
+  }
+
+  header.avatar {
+    width: 30%;
+    margin: 4em 6em 3em 2em;
+  }
+
+  main {
+    width: 70%;
+    padding-top: 3em;
+    padding-right: 3em;
+  }
+
+}

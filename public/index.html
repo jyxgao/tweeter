@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <!-- Meta Information -->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0, maximum-scale=1.0' />
     <title>Tweeter - Home Page</title>
 
     <!-- External CSS -->
@@ -32,7 +33,7 @@
       <div class="content">
         <span id="logo">tweeter</span>
         <h4>
-          <div>
+          <div class="navbar">
             <span id="write">Write</span>
             <span>a new tweet</span>
           </div>
@@ -42,39 +43,37 @@
         </h4>
       </div>
     </nav>
+    <div class="mainpage">
+      <header class="avatar">
+        <div>
+          <img src="/images/profile-hex.png">
+        </div>
+        <br>
+        <div>
+          <h2 class="profile"><span id="bold">Amy</span>Mansell</h2>
+        </div>
 
-    <header class="avatar">
-      <div>
-        <img src="/images/profile-hex.png">
-      </div>
-      <br>
-      <div>
-        <h2 class="profile"><span id="bold">Your</span>Name</h2>
-      </div>
+      </header>
 
-    </header>
-
-    <!-- Page-specific (main) content here -->
-    <main class="container">
-      <section class="new-tweet">
-        <!-- <h2>Compose Tweet</h2> -->
-        <p class="errormsg" id="emptyfield"><i class="fas fa-exclamation-triangle"></i> please enter a tweet <i class="fas fa-exclamation-triangle"></i></i></p>
-        <p class="errormsg" id="maxchar"><i class="fas fa-exclamation-triangle"></i> exceeded maximum characters allowed per tweet <i class="fas fa-exclamation-triangle"></i></i></p>
-        <form id="new-tweet-form" action="/tweets/" method="POST">
-          <label for="tweet-text">What are you humming about?</label>
-          <textarea type="text" name="text" id="tweet-text"></textarea>
-          <div class="form">
-            <button type="submit">Tweet</button>
-            <output name="counter" class="counter" for="tweet-text">140</output>
-          </div>
-        </form>
-        <section id="tweets-container">
-          <!-- tweets from database -->
+      <!-- Page-specific (main) content here -->
+      <main class="container">
+        <section class="new-tweet">
+          <!-- <h2>Compose Tweet</h2> -->
+          <p class="errormsg" id="emptyfield"><i class="fas fa-exclamation-triangle"></i> please enter a tweet <i class="fas fa-exclamation-triangle"></i></i></p>
+          <p class="errormsg" id="maxchar"><i class="fas fa-exclamation-triangle"></i> exceeded maximum characters allowed per tweet <i class="fas fa-exclamation-triangle"></i></i></p>
+          <form id="new-tweet-form" action="/tweets/" method="POST">
+            <label for="tweet-text">What are you humming about?</label>
+            <textarea type="text" name="text" id="tweet-text"></textarea>
+            <div class="form">
+              <button type="submit">Tweet</button>
+              <output name="counter" class="counter" for="tweet-text">140</output>
+            </div>
+          </form>
+          <section id="tweets-container">
+            <!-- tweets from database -->
+          </section>
         </section>
-      </section>
-      If you haven't seen Game of Thrones, go watch it right now. If you have then you'll totally get why this Hodor themed lorem ipsum generator is just brilliant.
-
-        Hodor. Hodor hodor, hodor. Hodor hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor; hodor hodor hodor. Hodor. Hodor hodor; hodor hodor - hodor, hodor, hodor hodor. Hodor, hodor. Hodor. Hodor, hodor hodor hodor; hodor hodor; hodor hodor hodor! Hodor hodor HODOR! Hodor hodor... Hodor hodor hodor...
-    </main>
+      </main>
+    </div>
   </body>
 </html>

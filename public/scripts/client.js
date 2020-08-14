@@ -8,6 +8,7 @@ $(document).ready(function() {
   
   $('.errormsg').hide();
   $('form').hide();
+  animateArrow();
 
   const escape = function(str) {
     let p = document.createElement('p');
@@ -26,7 +27,7 @@ $(document).ready(function() {
           </div>
           <h4 id="handle">${user.handle}</h4>
         </header>
-        <div>
+        <div class="tweet">
           <p class="tweet">${escape(tweet.content.text)}</p>
         </div>
         <footer class="tweet">
@@ -67,16 +68,28 @@ $(document).ready(function() {
     $('form').slideDown(400);
   });
 
-  $('#toggleform').mouseenter(function() {
-    $(this).animate({
-      bottom: "-=10",
-    }, 1000)
-  }).mouseleave(function() {
-    $(this).animate({
-      bottom: "+=10",
-    }, 1000)
-  })
+  // $('body').mouseenter(function() {
+  //   $('#toggleform').animate({
+  //     bottom: "-=10"
+  //     // bottom: "+=10"
+  //   }, 1000)
+  // })
+  // .mouseleave(function() {
+  //   $(this).animate({
+  //     bottom: "+=10",
+  //   }, 1000)
+  // });
 
+  function animateArrow() {
+    $('#toggleform').animate({
+      bottom: "-=10"
+    }, 1000, function() {
+      $('#toggleform').animate({
+        bottom: "+=10"
+      }, 1000, animateArrow())
+    })
+  }
+  
   const $form = $('#new-tweet-form');
   $form.on('submit', (event) => {
     event.preventDefault();
@@ -92,6 +105,8 @@ $(document).ready(function() {
       $('#maxchar').slideDown(700);
     } else {
       $('.errormsg').hide(350);
+      // empty input field upon submission
+      $('#new-tweet-form').trigger('reset');
       // send post request with query string format of form input to /tweets
       $.post(`/tweets`, serialized)
         .then(() => {

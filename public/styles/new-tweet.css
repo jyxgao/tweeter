@@ -9,7 +9,7 @@ form {
   padding: 3em 0 1em 0;
 }
 
-button {
+form button {
   background-color:  #34314c;
   color: #FFFFFF;
 }
@@ -39,7 +39,7 @@ textarea {
 article {
   padding: 1em;
   border: 5px solid #545149;
-  margin: 1em 0;
+  margin: 2em 0;
   color: #545149;
   opacity: 80%;
 }
@@ -95,6 +95,11 @@ div.icons {
 article:hover #handle {
   font-weight: bold;
   color: #B0C4DE;
+}
+
+article div.tweet {
+  display: flex;
+  flex-wrap: wrap;
 }
 
 p.tweet {
