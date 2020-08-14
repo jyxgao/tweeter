@@ -1,4 +1,7 @@
-/* Navbar style */
+/* 
+ * Navbar style 
+ */
+
 nav {
   height: 120px;
   margin: 0;
@@ -42,7 +45,6 @@ div.navbar {
 #write {
   font-weight: bold;
   margin-right: 0.3em;
-  /* margin-right: 0; */
 }
 
 nav button {

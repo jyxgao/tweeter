@@ -1,4 +1,7 @@
-/* Header Style */
+/* 
+ * Header Style 
+ */
+
 header.avatar {
   display: flex;
   flex-direction: column;
