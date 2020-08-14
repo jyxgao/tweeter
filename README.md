@@ -8,7 +8,7 @@ This repository is the starter code for the project: Students will fork and clon
 
 !["Mobile Version"](https://github.com/jyxgao/tweeter/blob/master/public/images/tweeter_mobile.png?raw=true)
 
-!["Ipad Version"](https://github.com/jyxgao/tweeter/blob/master/public/images/tweeter_ipad.png?raw=true)
+!["Ipad Version"](https://github.com/jyxgao/tweeter/blob/master/public/images/tweeter_medium.png?raw=true)
 
 !["Desktop Version"](https://github.com/jyxgao/tweeter/blob/master/public/images/tweeter_desktop.png?raw=true)
 
