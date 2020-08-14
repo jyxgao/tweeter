@@ -1,9 +1,9 @@
 $(document).ready(function() {
 
-  const charCount = function(event) {
+  const charCount = function() {
 
     const charLeft = 140 - $(this).val().length;
-    // find class="counter" through traversing the tree, set it to value equal to charLeft
+    // set ".counter" value through traversing the tree
     const counter = $(this).siblings('div').children('.counter');
     counter.text(charLeft);
 
@@ -15,7 +15,7 @@ $(document).ready(function() {
       counter.removeClass('red');
       $('.counter').text(charLeft);
     }
-  }
+  };
 
   $('textarea').keyup(charCount);
   $('textarea').on('input', charCount);
@@ -23,5 +23,5 @@ $(document).ready(function() {
   $('form').submit(function() {
     const charLeft = 140 - $('textarea').val().length;
     $('.counter').text(charLeft);
-  })
+  });
 });

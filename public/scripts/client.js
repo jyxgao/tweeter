@@ -9,13 +9,12 @@ $('form').hide();
 
 $(document).ready(function() {
 
-  animateArrow();
-
+  // stringify user input before parsing in to prevent XSS
   const escape = function(str) {
     let p = document.createElement('p');
     p.appendChild(document.createTextNode(str));
     return p.innerHTML;
-  }
+  };
 
   const createTweetElement = function(tweet) {
     let user = tweet.user;
@@ -40,12 +39,11 @@ $(document).ready(function() {
           </div>
         </footer>
       </article>
-    `
+    `;
     return $tweet;
-  }
+  };
 
   const renderTweets = function(tweets) {
-    // const tweetContainer = $('#tweets-container');
     // empty all child nodes to only prepend the new tweet
     $('#tweets-container').empty();
     
@@ -53,54 +51,61 @@ $(document).ready(function() {
       const $tweet = createTweetElement(tweet);
       $('#tweets-container').prepend($tweet);
     }
-  }
+  };
 
   const loadTweets = function() {
     $.getJSON('/tweets')
       .then((tweets) => {
         renderTweets(tweets);
-    })
-  }
+      });
+  };
+
   // initial load of all tweets in db
   loadTweets();
 
   // toggle form arrow to display form and animation
-  $('#toggleform').on('click', function() {
+  const toggle = $('#toggleform');
+  toggle.on('click', function() {
     $('form').slideDown(400);
   });
 
-  function animateArrow() {
-    $('#toggleform').animate({
+  const animateArrow = function() {
+    toggle.animate({
       bottom: "-=10"
     }, 1000, function() {
-      $('#toggleform').animate({
+      toggle.animate({
         bottom: "+=10"
-      }, 1000, animateArrow())
-    })
-  }
+      }, 1000, animateArrow());
+    });
+  };
 
+  animateArrow();
+
+  // ajax post request on successful tweet submission
   const $form = $('#new-tweet-form');
+  const $errorMsg = $('.errormsg');
+
   $form.on('submit', (event) => {
     event.preventDefault();
 
     const serialized = $form.serialize();
-
     const $input = $('textarea').val();
+
     if (!$input) {
-      $('.errormsg').hide(350);
+      $errorMsg.hide(350);
       $('#emptyfield').slideDown(700);
     } else if ($input.length > 140) {
-      $('.errormsg').hide(350);
+      $errorMsg.hide(350);
       $('#maxchar').slideDown(700);
     } else {
-      $('.errormsg').hide(350);
+      $errorMsg.hide(350);
       // empty input field upon submission
-      $('#new-tweet-form').trigger('reset');
-      // send post request with query string format of form input to /tweets
+      $form.trigger('reset');
+      // send post request with query string format
       $.post(`/tweets`, serialized)
         .then(() => {
           loadTweets();
-        })
-      }
+        });
+    }
   });
 });
