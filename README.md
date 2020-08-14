@@ -12,6 +12,8 @@ This repository is the starter code for the project: Students will fork and clon
 
 !["Desktop Version"](https://github.com/jyxgao/tweeter/blob/master/docs/tweeter_desktop.png?raw=true)
 
+!["User generated Tweets"](https://github.com/jyxgao/tweeter/blob/master/docs/tweeter_tweets.jpg?raw=true)
+
 ## Getting Started
 
 1. Fork this repository, then clone your fork of this repository.
