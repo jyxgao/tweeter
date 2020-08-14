@@ -34,6 +34,7 @@ textarea {
   resize: none;
   padding: 1em 0;
   font-size: 1em;
+  overflow: hidden;
 }
 
 article {
@@ -97,13 +98,11 @@ article:hover #handle {
   color: #B0C4DE;
 }
 
-article div.tweet {
-  display: flex;
-  flex-wrap: wrap;
-}
-
 p.tweet {
   padding: 0.8em;
+  display: flex;
+  flex-wrap: wrap;
+  word-break: break-all;
 }
 
 footer.tweet {

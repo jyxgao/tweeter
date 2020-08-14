@@ -4,10 +4,11 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
  */
 
+$('.errormsg').hide();
+$('form').hide();
+
 $(document).ready(function() {
-  
-  $('.errormsg').hide();
-  $('form').hide();
+
   animateArrow();
 
   const escape = function(str) {
@@ -27,7 +28,7 @@ $(document).ready(function() {
           </div>
           <h4 id="handle">${user.handle}</h4>
         </header>
-        <div class="tweet">
+        <div class="tweet-container">
           <p class="tweet">${escape(tweet.content.text)}</p>
         </div>
         <footer class="tweet">
@@ -68,18 +69,6 @@ $(document).ready(function() {
     $('form').slideDown(400);
   });
 
-  // $('body').mouseenter(function() {
-  //   $('#toggleform').animate({
-  //     bottom: "-=10"
-  //     // bottom: "+=10"
-  //   }, 1000)
-  // })
-  // .mouseleave(function() {
-  //   $(this).animate({
-  //     bottom: "+=10",
-  //   }, 1000)
-  // });
-
   function animateArrow() {
     $('#toggleform').animate({
       bottom: "-=10"
@@ -89,7 +78,7 @@ $(document).ready(function() {
       }, 1000, animateArrow())
     })
   }
-  
+
   const $form = $('#new-tweet-form');
   $form.on('submit', (event) => {
     event.preventDefault();
@@ -100,7 +89,7 @@ $(document).ready(function() {
     if (!$input) {
       $('.errormsg').hide(350);
       $('#emptyfield').slideDown(700);
-    } else if ($input.length >= 140) {
+    } else if ($input.length > 140) {
       $('.errormsg').hide(350);
       $('#maxchar').slideDown(700);
     } else {
