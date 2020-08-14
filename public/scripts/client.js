@@ -31,7 +31,7 @@ $(document).ready(function() {
           <p class="tweet">${escape(tweet.content.text)}</p>
         </div>
         <footer class="tweet">
-          <div>${tweet.created_at} ago</div>
+          <div>${moment(tweet.created_at).fromNow(true)} ago</div>
           <div class=icons>
             <i class="fas fa-flag"></i>
             <i class="fas fa-retweet"></i>
